@@ -1,0 +1,71 @@
+namespace ca.mcgill.ecse321.train.model;
+
+class TicketKiosk {
+	1 -> * Destination destinations;
+	1 -> * Transaction transactions;
+}
+
+
+class Destination {
+	name;
+	1 -- * Trip availableTrips;
+}
+
+class Trip {
+	departureTime;
+	arrivalTime;
+	tripDuration;
+
+	1 -- * Cabin availableCabins;
+}
+
+
+class Transaction {
+	creditCardToBill;
+	authorizationCode;
+	boolean successful;
+
+	1 -> * Ticket tickets;
+}
+
+
+class Ticket {
+	1 -- 1 Person person;
+	1 -> 1 Trip trip;
+	1 -> 1 Cabin cabin;
+}
+
+
+class Person {
+	name;
+}
+
+class Adult {
+	isA Person;
+}
+
+class Child {
+	isA Person;
+}
+
+class Senior {
+	isA Person;
+}
+
+
+class Cabin {
+	cabinNumber;
+	double price;
+}
+
+class Economy {
+	isA Cabin;
+}
+
+class Business {
+	isA Cabin;
+}
+
+class FirstClass {
+	isA Cabin;
+}

@@ -1,1 +1,3 @@
 # ECSE321
+
+ECSE 321 - Fall 2016
